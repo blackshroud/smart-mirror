@@ -1,110 +1,90 @@
 <!DOCTYPE html>
-<html ng-app="SmartMirror">
-<head>
-  <title>Smart Mirror</title>
-  <!-- Libraries -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.0.0/annyang.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.min.js"></script>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Smart-mirror by blackshroud</title>
+  </head>
 
-  <!-- App -->
-  <!--<script src="/js/init.js"></script>-->
-  <script src="js/config.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/annyang-service.js"></script>
-  <script src="js/weather-service.js"></script>
-  <script src="js/geolocation-service.js"></script>
-  <script src="js/controller.js"></script>
+  <body>
+    <div id="container">
+      <div class="inner">
 
-  <!-- Styles and Resources -->
-  <link rel="shortcut icon" href="favicon.ico" />
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="css/main.css" />
-</head>
-<body ng-controller="MirrorCtrl as commands">
-<div class="top">
-    <div class="top-left">
-      <div class="date grey">{{date | date : 'EEEE, MMMM d yyyy'}}</div>
-      <div class="time">{{date | date : 'hh:mm a'}}</div>
-    </div>
-  <div class="top-right">
-    <div class="weather">
-      <div class="weather-today">
-        <span class="tempreture">{{currentForcast.temperature}}&deg;</span>
+        <header>
+          <h1>Smart-mirror</h1>
+          <h2>Interactive Smart Mirror</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/blackshroud/smart-mirror/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/blackshroud/smart-mirror/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/blackshroud/smart-mirror" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a id="smart-mirror" class="anchor" href="#smart-mirror" aria-hidden="true"><span class="octicon octicon-link"></span></a>Smart Mirror</h1>
+
+<p>This project is inspired by <a href="https://github.com/HannahMitt/HomeMirror">HomeMirror</a> and Michael Teeuw's <a href="http://michaelteeuw.nl/tagged/magicmirror">Magic Mirror</a> and evancohens <a href="https://github.com/evancohen/smart-mirror">SmartMirror</a> . It uses <a href="https://github.com/TalAter/annyang">annyang</a> for voice interactivity, <a href="http://electron.atom.io/">electron</a> to make it cross platform, and integrates with Philips Hue and can also display RSS feeds and iCal for your convenience.</p>
+
+<h3>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started</h3>
+
+<h4>
+<a id="hardware-components" class="anchor" href="#hardware-components" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hardware Components</h4>
+
+<ul>
+<li>Raspberry Pi 2 (optional)</li>
+<li>USB Microphone (Or Webcam w/ microphone)</li>
+<li>Monitor (with the bezel removed - optional)</li>
+<li>Mirror Pane (aka Observation Glass) (optional)</li>
+<li>Philips Hue (optional)</li>
+</ul>
+
+<h4>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h4>
+
+<p>I have set this up so that it can run of of any web server, so as long as you have a webserver running somewhere, that you can host this from, you should be fine. (keeping in mind that you MUST use Chrome to display it)</p>
+
+<h5>
+<a id="setting-up-the-configuration" class="anchor" href="#setting-up-the-configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting up the configuration</h5>
+
+<p>Done? Excellent, let's continue.</p>
+
+<p>Time to update the config file... You'll need to fill in things in <code>js/config.js</code>:</p>
+
+<ol>
+<li>A <a href="https://developer.forecast.io/">Forecast API key</a> (don't worry, it's free)</li>
+<li>Philips Hue Bridge IP address with a configured user. Details about how to set this up in the <a href="http://www.developers.meethue.com/documentation/getting-started">Philips Hue Developer Documentation</a>
+</li>
+<li>Set RSS feed location in config.js</li>
+<li>Add iCal URL to config.js</li>
+</ol>
+
+<p>To set the default MAP home, update the address located in map-service.js</p>
+
+<h3>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License:</h3>
+
+<p>MIT</p>
+        </section>
+
+        <footer>
+          Smart-mirror is maintained by <a href="https://github.com/blackshroud">blackshroud</a><br>
+          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
       </div>
-      <div class="weather-week-descriptor">{{weeklyForcast.summary}}</div>
-      <div class="weather-week" ng-repeat="forcast in weeklyForcast.data" ng-if="$index > 0">
-        <div class="weather-week-day">
-          <span class="day light-grey">{{forcast.day}}</span>
-          <span class="tempreture tempreture-min">{{forcast.temperatureMin}}</span>
-          <span class="tempreture tempreture-max">{{forcast.temperatureMax}}</span>
-        </div>
-      </div>
     </div>
-  </div>
-</div>
-<div class="container">
-  <div class="middle-center">
-    <h1>{{complement}}</h1>
-    <h3 ng-show="!(user.name === undefined)">{{user.name}}</h3>
-    <div ng-show="listening">Ready: {{focus}}</div>
-    <div class="map-container animate-grow" ng-show="focus == 'map'">
-      <div id="map" class="map"></div>
-    </div>
-  </div>
-
-  <div class="bottom-center">
-    <div ng-show="focus != 'commands'">
-        Say "What can I say?" to see a list of commands...
-    </div>
-    <!-- Command list -->
-    <div class="commands animate-grow" ng-show="focus == 'commands'">
-      <h2>Availalble Commands</h2>
-      <dl>
-        <dt>What can I say?</dt>
-          <dd>Shows a list of voice commands available to you.</dd>
-        <dt>Go home</dt>
-          <dd>Takes you back to the home screen</dd>
-        <dt>Show me ________</dt>
-          <dd>Will show you pictures of the requested item.</dd>
-        <dt>Remind me to ________</dt>
-          <dd>Add something to the reminders list.</dd>
-        <dt>Clear reminders</dt>
-          <dd>Clears out your reminders list.</dd>
-      </dl>
-    </div>
-  </div>
-  <div class="colors animate-grow" ng-show="focus == 'colors'">
-    <div class="color-block" ng-repeat="color in colors" style="background-color:{{color}}"></div>
-  </div>
-</div>
-<!-- Debug Buttons -->
-<div class="debug-info" ng-show="debug == true">
-  <button ng-click="focus = (focus == 'map')?'default':'map'">Map</button>
-  <button ng-click="resizeMap()">Fix Map :(</button>
-  <button ng-click="focus = (focus == 'colors')?'default':'colors'">Colors</button>
-  <button ng-click="focus = (focus == 'commands')?'default':'commands'">Commands</button>
-  <button ng-click="debug = false">Close Debug</button>
-  <!-- Has results -->
-  <div ng-show="commands.results.length > 0">
-    <button class="btn btn-default" ng-click="commands.clearResults()">Clear</button>
-
-    <hr/>
-
-    <ul class="list-group">
-        <li class="list-group-item" ng-repeat="result in commands.results">
-            <span class="badge">{{ result.date | date : 'EEE MMM, yyyy hh:mm:ss a' }}</span>
-            {{ result.content }}
-        </li>
-    </ul>
-  </div>
-</div>
-<!-- Sleep cover -->
-<div ng-show="focus == 'sleep'" class="sleep-cover fade"></div>
-
- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmo563HaHPE2SDZqWEMyDnIkqw9zORkDs&callback=initMap"
-        async defer></script>
-</body>
+  </body>
 </html>
